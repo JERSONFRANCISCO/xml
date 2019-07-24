@@ -9,7 +9,7 @@ function XMLtoJSON($xml) {
 }
 
 //<?php
-
+/*
 $ruta="docs";
 
 $directorio = opendir($ruta); //ruta actual
@@ -30,6 +30,9 @@ while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro suce
     	rename ("docs/".$archivo,"Procesados/".$archivo);
     }
 }
+*/
+
+
 //function procesaCarpeta
 if(isset($_POST['submit'])){
 	$countfiles = count($_FILES['file']['name']);
