@@ -8,18 +8,21 @@ class ctr_inicio{
 		{
 			$this->postdata = new mdl_inicio();
 		}
-		public function obtenerschema()
+		public function obtenerschema($TABLA)
 		{
-			return $this->postdata->obtenerschema();
+			return $this->postdata->obtenerschema($TABLA);
 		}
-		public function obtenerschemaDetalle()
+		public function obtenerschemaDetalle($TABLA)
 		{
-			return $this->postdata->obtenerschemaDetalle();
+			return $this->postdata->obtenerschemaDetalle($TABLA);
 		}
 		public function ejecutar($sql)
 		{
 			return $this->postdata->ejecutar($sql);
 		}
-		
+		public function obtenerDocsAcrear()
+		{
+			return $this->postdata->obtenerDocsAcrear();
+		}
 	}
 	?>

@@ -8,10 +8,23 @@ class mdl_Conexion
 
 	function __construct()
 	{
-		$this->servidor = "Dialcomsv02,3341";
-		//$this->servidor = 'LAPTOP-PUKMO5EA\SQLEXPRESS';
-		$this->connectionInfo =array("Database"=>"SabioXML","UID"=>"sa","PWD"=>'$abi@',"CharacterSet"=>"UTF-8");
+		
+		//$this->servidor = '.';
+		//$this->servidor = '172.17.35.2,3341';
+		//$this->servidor = 'Dialcomsv02,3341';
+		//$this->connectionInfo =array("Database"=>"SabioAlco","UID"=>"sa","PWD"=>'$abi@',"CharacterSet"=>"UTF-8");
+		//$this->servidor = ".";
+		$this->servidor = "192.169.1.15";
+		//$this->servidor = "26.22.81.33";
+
+		//$this->connectionInfo =array("Database"=>"SabioXML","UID"=>"sa","PWD"=>'123456',"CharacterSet"=>"UTF-8");
+        $this->connectionInfo =array("Database"=>"SabioAdobe","UID"=>"sa","PWD"=>'Password01',"CharacterSet"=>"UTF-8");
+		//$this->connectionInfo =array("Database"=>"SabioXML","UID"=>"sa","PWD"=>'Password01',"CharacterSet"=>"UTF-8");
 		//$this->connectionInfo =array("Database"=>"dialcomtickets","UID"=>"jerson","PWD"=>'Jfhj3030_',"CharacterSet"=>"UTF-8");
+		//$this->connectionInfo =array("Database"=>"SabioXML","UID"=>"Sa","PWD"=>' $abi@',"CharacterSet"=>"UTF-8");
+		//$this->connectionInfo =array("Database"=>"Sabio","UID"=>"Sa","PWD"=>'$qlRahso1357',"CharacterSet"=>"UTF-8");
+		//$this->connectionInfo =array("Database"=>"SabioXML","UID"=>"Sa","PWD"=>'$qlRahso1357',"CharacterSet"=>"UTF-8");
+		//$this->connectionInfo =array("Database"=>"SabioXML","UID"=>"sa","PWD"=>'Jfhj3030_',"CharacterSet"=>"UTF-8");
 		$this->conectar_base_datos();
 
 	}
@@ -32,7 +45,6 @@ class mdl_Conexion
 	}
 	public function consulta($consulta)
 	{
-
 		$stmt = sqlsrv_query($this->conexion, $consulta);
 
 		if( $stmt === false ) {
@@ -58,6 +70,10 @@ class mdl_Conexion
 
 	public function obtener_Columnas($stmt){
 		$stmt=sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_NUMERIC);
+		return $stmt;
+	}
+	public function obtener_Columnas2($stmt){
+		$stmt=sqlsrv_fetch_array( $stmt,SQLSRV_FETCH_NUMERIC);
 		return $stmt;
 	}
 	public function tiene_Registros($stmt){

@@ -1,0 +1,91 @@
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 1     and 5000) and COM_ArchivoXMLEnvio is not null --3890
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 5000  and 10000) and COM_ArchivoXMLEnvio is not null --4997
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 10000 and 15000) and COM_ArchivoXMLEnvio is not null --4997
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 15000 and 20000) and COM_ArchivoXMLEnvio is not null --5000
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 20000 and 25000) and COM_ArchivoXMLEnvio is not null --4996
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 25000 and 30000) and COM_ArchivoXMLEnvio is not null --4986
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 30000 and 35000) and COM_ArchivoXMLEnvio is not null --4989
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 35000 and 40000) and COM_ArchivoXMLEnvio is not null --4968
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 40000 and 45000) and COM_ArchivoXMLEnvio is not null --4993
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 45000 and 50000) and COM_ArchivoXMLEnvio is not null --4993
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 50000 and 55000) and COM_ArchivoXMLEnvio is not null --3997
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 55000 and 60000) and COM_ArchivoXMLEnvio is not null --4597
+select count(*) from fe.FE_COMPROBANTES_ELECTRONICOS where (id between 60000 and 64855) and COM_ArchivoXMLEnvio is not null --4756
+
+select max(id) from fe.FE_COMPROBANTES_ELECTRONICOS
+
+select top 1 * from fe.FE_COMPROBANTES_ELECTRONICOS  order by id desc
+
+select * from fe.FE_COMPROBANTES_ELECTRONICOS where com_consecutivo = '00100001030000002626'
+
+
+select count(*) as total 
+from FE_FAC_FACTURAS 
+group by clave 
+having count(*)>=2
+
+
+select * from FE_FAC_DETALLE
+select * from FE_FAC_FACTURAS
+
+select count(*),NumeroConsecutivo as total 
+from FE_FAC_FACTURAS 
+group by NumeroConsecutivo 
+having count(*)>=2
+
+drop table FE_FAC_DETALLE
+drop table FE_FAC_FACTURAS
+create table FE_FAC_DETALLE(
+	TipoDocumentoElectronico varchar(20),
+	Clave varchar(100),
+	NumeroConsecutivo varchar(50),
+	NumeroLinea  varchar(20),
+	Codigo  varchar(20),
+	CodigoComercialTipo  varchar(20),
+	CodigoComercialCodigo  varchar(20),
+	Cantidad  money,
+	UnidadMedida  varchar(50),
+	Detalle  varchar(150),
+	PrecioUnitario money,
+	MontoTotal money,
+	DescuentoMontoDescuento  money,
+	DescuentoNaturalezaDescuento  varchar(50),
+	SubTotal  money,
+	ImpuestoCodigo  varchar(2),
+	ImpuestoCodigoTarifa  varchar(2),
+	ImpuestoTarifa  money,
+	ImpuestoMonto  money,
+	ImpuestoNeto  money,
+	MontoTotalLinea  money
+)
+
+create table FE_FAC_FACTURAS(
+	TipoDocumentoElectronico varchar(20),
+	Clave varchar(100),
+	NumeroConsecutivo varchar(50),
+	CodigoActividad varchar(50),
+	FechaEmision date,
+	EmisorNombre varchar(200),
+	EmisorIdentificacionNumero varchar(200),
+	ReceptorNombre varchar(200),
+	CodigoMoneda varchar(10),
+	TipoCambio money,
+	TotalServGravados money,
+	TotalServExentos money,
+	TotalServExonerado money,
+	TotalMercanciasGravadas money,
+	TotalMercanciasExentas money,
+	TotalMercExonerada money,
+	TotalGravado money,
+	TotalExento money,
+	TotalExonerado money,
+	TotalVenta money,
+	TotalDescuentos money, 
+	TotalVentaNeta money,
+	TotalImpuesto money,
+	TotalComprobante money,
+	OtroTexto varchar(2000)
+)
+
+
+

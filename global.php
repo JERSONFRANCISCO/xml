@@ -41,4 +41,10 @@
   define('__google_fonts', "https://fonts.googleapis.com/css");   
 //app_core/resources/usrimg/
  
+
+
+  define('TABLADETALLE', "FE_FAC_DETALLE");
+  define('TABLAENCABEZADO',  "FE_FAC_FACTURAS");
+
+
 ?>
